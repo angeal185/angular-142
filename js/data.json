@@ -1,0 +1,112 @@
+[
+  {
+    "id": "1",
+    "title": "What is AngularJS?",
+    "descr": "<p>AngularJS is an open-source JavaScript framework developed and maintained by Google. It's a complete client side solution. It helps to create single-page applications. It extends HTML's syntax to express application's component clearly.<br><br>It is based on Model-View-Controller pattern. It makes development and testing easier.</p><img src='img/AngularLogo.png'><p>AngularJS is a structural framework for dynamic web apps. It lets you use HTML as your template language and lets you extend HTML's syntax to express your application's components clearly and succinctly.</p>"
+  },
+  {
+    "id": "2",
+    "title": "You Should know before start?",
+    "descr": "<p>You should have a basic understanding of:</p><br><ul><li><p><b>HTML</b></p></li><li><p><b>JavaScript</b></p></li><li><p><b>CSS</b></p></li></ul>"
+  },
+  {
+    "id": "3",
+    "title": "Why AngularJs?",
+    "descr": "<p>These are some reason why use AngularJs:</p><br><ul><li><p>1. Angular follow <b>MVC</b> pattern.</p></li><li><p>2. AngularJS Handles Dependencies</p></li><li><p>3. AngularJS Enables Massively Parallel Development.</p></li><li><p>4. AngularJS Supports Single Page Applications.</p></li><li><p>5. AngularJS Enables a Design - Development Work flow.</p></li><li><p>6. AngularJS Gives Developers Controls.</p></li><li><p>7. Unit testing ready.</p></li><li><p>8. Large mature community to help you.</p></li></ul>"
+  },
+  {
+    "id": "4",
+    "title": "Modules",
+    "descr": "<p>An AngularJS module defines an application. You can think of a module as a container for the different parts of your app.<br><br>They divide an angular app into small, reusable and functional components which can be integrated with other angular app. <br><br>Each module is identified by a unique name and can be dependent on other modules.<br><br>Declaration of MyApp module using <b>angular.module</b> function, an empty array generally contains dependent modules.<br><br><b>&lt;div ng-app=&#34;MyApp&#34;&gt;</b> refers to MyApp module.</p><img src='img/angular_module.png'>"
+  },
+  {
+    "id": "5",
+    "title": "Expressions",
+    "descr": "<p>Expressions are used to bind application data to html. Expressions are written inside double braces like {{expression}}. AngularJS will output data exactly where the expression is written. AngularJS expressions are much like JavaScript expressions: They can contain literals, operators, and variables.<br><br>These are valid expressions in AngularJs:<br><br>{{ 1+2 }}<br>{{ a+b }}<br>{{ user.name }}<br>{{ items[index] }}</p><img src='img/expression.png'>"
+  },
+  {
+    "id": "6",
+    "title": "Data binding",
+    "descr": "<p>Data-binding in Angular apps is the automatic synchronization of data between the model and view components. The view is a projection of the model at all times. When the model changes, the view reflects the change, and vice versa. Two types of data binding in AngularJs:</p><br><br><b>Two Way Binding:</b><br><p>In two way binding, first the template is compiled on the browser. The compilation step produces a live view. Any changes to the view are immediately reflected in the model, and any changes in the model are propagated to the view. {{name}}</p><img src='img/two_way_binding.png'><b>One Way Binding</b><br><p>An expression that starts with :: is considered an one way binding. One way binding will stop recalculating once they are stable, which happens after the first digest if the expression result is a non-undefined value.{{::name}}</P><img src='img/one_way_binding.png'><p>The main purpose of one way binding is to provide a way to create a binding that gets deregistered and frees up resources once the binding is stabilized. Reducing the number of expressions being watched makes the digest loop faster and allows more information to be displayed at the same time.</p>"
+  },
+  {
+    "id": "7",
+    "title": "Scope",
+    "descr": "<p>Scope is the glue between application controller and the view. It is an object that refers to the application model.<br><br>Every controller has an associated $scope object.<br><br>A controller (constructor) function is responsible for setting model properties and functions. This can be done only through $scope. Whatever function or model you apply in View (html file), that is accessed in controller using scope.<br><br>Only methods defined on this $scope object are accessible from the HTML/view. Example - from ng-click, filters, etc</p><img src='img/scope.png'><p>Scopes are hierarchical in nature and follow the DOM structure of your AngularJS app. AngularJS has two scope objects: $rootScope and $scope.</p>"
+  },
+  {
+    "id": "8",
+    "title": "rootScope",
+    "descr": "<p>Every application has a single root scope. All other scopes are descendant scopes of the root scope.<br><br>The <b>$rootScope</b> is the top-most scope.<br><br>$rootScope is the <b>parent</b> of all scopes, which makes every newly created $scope a child.<br><br>$rootScope is how we could communicate across scopes with ease.<br><br>An app can have only one $rootScope which will be shared among all the components of an app. Hence it acts like a global variable.<br><br></p><img src='img/rootscope.png'>"
+  },
+  {
+    "id": "9",
+    "title": "Scope LifeCycle",
+    "descr": "<p>Scope data goes through a life cycle while the application is loaded in the browser. Understanding this life cycle will help you understand the interaction between scope and other AngularJS components, especially templates.<br><br>The scope data goes through the following life cycle phases:<br><br><b>1. Creation</b><br>The root scope is created during the application bootstrap by the $injector. During template linking, some directives create new child scopes.<br><br><b>2. Watcher registration</b><br>During template linking directives register watches on the scope. These watches will be used to propagate model values to the DOM.<br><br><b>3. Model mutation</b><br>For mutations to be properly observed, you should make them only within the scope.$apply(). Angular APIs do this implicitly, so no extra $apply call is needed when doing synchronous work in controllers, or asynchronous work with $http, $timeout or $interval services.<br><br><b>4. Mutation observation</b><br>At the end of $apply, Angular performs a $digest cycle on the root scope, which then propagates throughout all child scopes. During the $digest cycle, all $watched expressions or functions are checked for model mutation and if a mutation is detected, the $watch listener is called.<br><br><b>5. Scope destruction</b><br>When child scopes are no longer needed, it is the responsibility of the child scope creator to destroy them via scope.$destroy() API. This will stop propagation of $digest calls into the child scope and allow for memory used by the child scope models to be reclaimed by the garbage collector.</p>"
+  },
+  {
+    "id": "10",
+    "title": "Controllers",
+    "descr": "<p>AngularJS applications are controlled by controllers, the ng-controller directive defines the application controller.<br><br>A controller is a JavaScript Object, created by a standard JavaScript object constructor.<br><br>When a Controller is attached to the DOM via the ng-controller directive, Angular will instantiate a new Controller object, using the specified Controller's constructor function.<br><br>A new child scope will be available as an injectable parameter to the Controller's constructor function as $scope.<br><br>The <b>ng-controller=&#34;Ctrl&#34;</b> attribute is an AngularJS directive. It defines a controller.The <b>Ctrl</b> function is a JavaScript function.AngularJS will invoke the controller with a $scope object.</p><img src='img/controller.png'><p>Use controllers to:</p><ul><li><p>Set up the initial state of the $scope object.</p></li><li><p>Add behavior to the $scope object.</p></li></ul>"
+  },
+  {
+    "id": "11",
+    "title": "Directives",
+    "descr": "AngularJS <b>directives</b> are used to extend HTML.<br><br>These are special attributes starting with <b>ng-</b> prefix.<br><br>Some inbuilt directives are:<br><br><ul><li><p><b>ng-app</b> - This starts an AngularJS Application.</p></li><li><p><b>ng-init</b> - This initializes application data.</p></li><li><p><b>ng-model</b> - This defines the model that is variable to be used in AngularJS.</p></li><li><p><b>ng-repeat</b> - This repeats html elements for each item in a collection.</p></li></ul><img src='img/directive.png'><p>Directives can be use as an attribute, element name, comment or CSS class in a DOM ,that tell AngularJS's HTML compiler to attach a specified behaviour to that DOM element.<br><br>You can create your own custom directives for Angular to use.</p>"
+  },
+  {
+    "id": "12",
+    "title": "Dependency Injection",
+    "descr": "<p><b>Dependency Injection (DI)</b> is a software design pattern that deals with how components get hold of their dependencies. <br><br>The Angular injector subsystem is in charge of creating components, resolving their dependencies, and providing them to other components as requested.<br><br>This helps in making components reusable, maintainable and testable.<br><br>There are three ways of annotating your code with service name information:</p><br><br><p><b>1. Using the inline array annotation</b></p><img src='img/dependency_injection1.png'><p><b>2. Using the $inject property annotation</b></p><img src='img/dependency_injection2.png'><p><b>3. Implicitly from the function parameter names</b></p><img src='img/dependency_injection3.png'>"
+  },
+  {
+    "id": "13",
+    "title": "Services",
+    "descr": "<p>Angular services are substitutable objects that are wired together using dependency injection (DI). A service is a reusable singleton object which is used to organize and share code across your app.<br><br>Controllers, filters can call them as on requirement basis.<br><br>Services are normally injected using dependency injection mechanism of AngularJS.<br><br>AngularJS offers several built-in services like:-</P><ul><li><p><b>$http</b></p></li><li><p><b>$provide</b></p></li><li><p><b>$resource</b></p></li><li><p><b>$window</b></p></li><li><p><b>$parse</b></p></li><br><p>These services can be used within any Controller by just declaring them as dependencies. For example:</p><img src='img/services.png'>"
+  },
+  {
+    "id": "14",
+    "title": "Filters",
+    "descr": "<p>A filter formats the value of an expression before displaying it to the user.<br><br>A filter can be used in view templates, controllers or services.<br><br>A filter can be added to an expression and directives with a pipe character (|).<br><br><b>{{ expression | filter }}</b><br><br>There are some built-in filters provided by AngularJS:-</p><br><br><ul><li><p><b>uppercase</b> converts a text to upper case text.</p></li><li><p><b>lowercase</b> converts a text to lower case text.</p></li><li><p><b>currency</b> formats text in a currency format.</p></li><li><p><b>filter</b> filter the array to a subset of it based on provided criteria.</p></li><li><p><b>orderby</b> orders the array based on provided criteria.</p></li></ul><img src='img/filter.png'>"
+  },
+  {
+    "id": "15",
+    "title": "Factory vs Service vs Provider",
+    "descr": "<p>Angular provides us with three ways to create and register our own service.<br><br><b>1. Factory</b> <br>When you're using a Factory you create an object, add properties to it, then return that same object. When you pass this service into your controller, those properties on the object will now be available in that controller through your factory.<img src='img/factory.png'><b>2. Service</b><br>When you're using Service, it's instantiated with the 'new' keyword. Because of that, you'll add properties to 'this' and the service will return 'this'. When you pass the service into your controller, those properties on 'this' will now be available on that controller through your service.<img src='img/service.png'><b>3. Provider</b><br>Providers are the only service you can pass into your .config() function. Use a provider when you want to provide module-wide configuration for your service object before making it available.<img src='img/provider.png'></p>"
+  },
+  {
+    "id": "16",
+    "title": "Routing",
+    "descr": "<p>AngularJS <b>Routing</b> helps you to divide your app into multiple views and bind different views to Controllers.<br><br>AngularJS routes enables you to show different content depending on what route is chosen.<br><br>The magic of Routing is taken care by an AngularJS service <b>$routeProvider</b>.<br><br>$routeProvider service provides method when() and otherwise() to define the routes for your app. Routing has dependency on ngRoute module.<br><br><b>Including the AngularJS Route Module</b><img src='img/routes_path.png'><b>Declaring a Dependency on the AngularJS Route Module</b><br>The application's module needs to declare this dependency in order to use the ngRoute module.<img src='img/routes_module.png'><b>The ngView Directive</b><br>Inside the div with the ngView directive the HTML template specific to the given route will be displayed.<img src='img/routes_view.png'><b>Configuring the $routeProvider</b><br>The $routeProvider is what creates the $route service. By configuring the $routeProvider before the $route service is created we can set what routes should result in what HTML templates being displayed.<img src='img/routes.png'></p>"
+  },
+  {
+    "id": "17",
+    "title": "ng-show vs ng-hide",
+    "descr": "<p>AngularJS has its own HTML events directives.<br><br><b>ng-show</b> and <b>ng-hide</b> directives are used to show and hide HTML elements in the AngularJS based on an expression.<br><br><b>ng-hide</b><br><br>The ng-hide directive is used to set the visibility of a part of an application.<br><br>The value ng-hide=&#34;true&#34; makes an HTML element invisible.<br><br>The value ng-hide=&#34;false&#34; makes the element visible.<img src='img/ng_hide.png'><br><br><b>ng-show</b><br><br>The ng-show directive can also be used to set the visibility of a part of an application.<br><br>The value ng-show=&#34;false&#34; makes an HTML element invisible.<br><br>The value ng-show=&#34;true&#34; makes the element visible.<img src='img/ng_show.png'></p>"
+  },
+  {
+    "id": "18",
+    "title": "$watch, $digest and $apply",
+    "descr": "<p>At the heart of angularjs is data binding.<br><br>AngularJS handle data-binding mechanism with the help of three powerful functions: <b>$watch()</b>, <b>$digest()</b> and <b>$apply()</b>.<br><br>Most of the time AngularJS will call the <b>$watch()</b> and <b>$digest()</b> functions for you, but in some situations you may have to call them yourself.<br><br><b>$watch()</b><br><br>$watch is angular method, for dirty checking.<br><br>$watch can be used to watch any value, and trigger a function call when that value changes.<br><br>Imagine the $watch as something that is able to detect changes in the model it is watching.<img src='img/watch.png'><br><b>$digest()</b><br><br>$digest() is angular method, which is invoked internally by angularjs in frequent intervals. <br><br>In $digest method, angular iterates overall $watches in its scope/child scoples.If any changes are found the resulting DOM operation is done.<br><br>When $digest() iterates over the watches, it checks if the value of the expression has changed. If the value has changed, AngularJS calls the change callback(listener) with the new value and the old value.<img src='img/digest.png'><br><b>$apply()</b><br><br>$apply() is used to execute an expression in angular from outside of the angular framework.(For example from browser DOM events and setTimeout).<br><br>$apply is a wrapper around $rootScope.$digest that evaluates any expression passed to it prior to calling $digest().<br><br>The $apply() function takes a function as parameter which is executed.<br><br>When the $apply() function call finishes AngularJS calls $digest() internally, so all data bindings are updated.<img src='img/apply.png'></p>"
+  },
+  {
+    "id": "19",
+    "title": "ng-if, ng-switch, ng-repeat",
+    "descr": "<p><b>ng-if</b><br><br>The ngIf directive removes or recreates a portion of the DOM tree based on an {expression}.<br><br>If the expression assigned to ngIf is false, then the element is removed from the DOM, otherwise a clone of the element is reinserted into the DOM.<br><br>When an element is removed using ngIf its scope is destroyed and a new scope is created when the element is restored.<br><br>ngIf differs from ngShow and ngHide in that ngIf completely removes and recreates the element in the DOM rather than changing its visibility via the display css property.<img src='img/ng_if.png'><br><b>ng-switch</b><br><br>The ngSwitch directive is used to conditionally swap DOM structure on your template based on a scope expression.<br><br>Elements within ngSwitch but without ngSwitchWhen or ngSwitchDefault directives will be preserved at the location as specified in the template.<br><br><img src='img/ng_switch.png'><br><b>ng-repeat</b><br><br>The ngrepeat directive clones HTML elements once for each item in a collection.<br><br> When the ngRepeat directive executes, AngularJS creates a new $scope instance for each template clone. <br><br>It then puts your iteration cursor reference in that $scope. So, if we had an ngRepeat loop.<img src='img/ng_repeat.png'></p>"
+  },
+  {
+    "id": "20",
+    "title": "Validation",
+    "descr": "<p>AngularJS forms and controls can validate input data.<br><br>Form and controls provide validation services, so that the user can be notified of invalid input before submitting a form.<br><br>Some AngularJS built in validation property are:<br><br><b>$dirty</b> The user has interacted with the field.<br><br><b>$valid</b> The field content is valid.<br><br><b>$invalid</b> The field content is invalid.<br><br><b>$pristine</b> User has not interacted with the field yet.<br><br><b>$touched</b> The control has been blurred.</p>"
+  },
+  {
+    "id": "21",
+    "title": "Bootstrap",
+    "descr": "<p><b>Bootstrapping</b> is the equivalent of initializing, or starting, your Angular app. There are 2 main ways to do so.<br><br><b>Automatic Initialization</b><br>The first is automatically bootstrapping by adding ng-app to the an element in your HTML, like so:<img src='img/automatic_bootstrap.png'><b>Manual Initialization</b><br>The second would be to bootstrap from the JavaScript, like so, after having creating your app through:<img src='img/manual_bootstrap.png'>You should call angular.bootstrap() after you've loaded or defined your modules. You cannot add controllers, services, directives, etc after an application bootstraps.</p>"
+  },
+  {
+    "id": "22",
+    "title": "Angular 2.0",
+    "descr": "<p>AngularJS team is planning for next release of AngularJs in end of 2015.<br><br>Angular 2.0 will be come with some extended features.<br><br><br><b>Mobile</b><br><br>The new Angular version will be focused on the development of mobile apps.<br><br>The rationale is that it’s easier to handle the desktop aspect of things, once the challenges related to mobile have been addressed.<br><br><br><b>Modular</b><br><br>Various modules will be removed from Angular’s core, resulting in better performance.<br><br>These will find their way into Angular’s ever-growing ecosystem of modules, meaning you’ll be able to pick and choose the parts you need.<br><br><br><b>Modern</b><br><br>Angular 2.0 will target ES6 and &#34;evergreen&#34; modern browsers. <br><br>One of the goals for Angular 2.0 is allow developers to concentrate on the lines of code related to their business domain.<br><br>The next version will better hide angular frame.<br><br><b>$Scope</b><br><br>$scope will be removed in Angular 2.0 in favor of ES6 classes.</p>"
+  }
+]

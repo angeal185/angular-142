@@ -1,0 +1,15 @@
+<ion-header-bar align-title="center" class="bar-balanced nav-title-slide-ios7">
+    <h1 class="title">Favorites</h1>
+</ion-header-bar>
+<ion-view title="My Favorite">
+    <ion-content>
+        <ion-list>
+            <ion-item ui-sref="detail" ng-repeat="task in tasks | filter: {fav:'1'}" ng-click="details(task.id)"
+                      class="item item-icon-right">
+                {{task.title}}
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
+
